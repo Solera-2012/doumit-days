@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="home page">
+	<meta name="author" content="Nathaniel Saul/bootstrap examples">
+
+
+	<title>
+	Doumit Days 2018
+	</title>
+
+
+
+	<link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="{{STATIC_URL}}css/sticky-footer-navbar.css" rel="stylesheet" media="screen">
+	<link href="{{STATIC_URL}}css/customCSS.css" rel="stylesheet" type="text/css"
+	media="screen">
+
+</head>
+
+<body>
+
+
+<div class="col-lg-8">
+	<div class="jumbotron">
+	<h1>Doumit Days 2018</h1>
+	</div>
+</div>
+
+
+<div class="col-lg-8">
+    <div class="panel panel-primary">
+		<div class="panel-heading"><h3>About</h3></div>
+		
+			<div class="panel-body">
+				Who wants to come to doumit days?
+				<br>
+				We are planning to take a week long cruise from Seattle to Alaska and back.
+				<br>
+				We are collecting information on the best times so that we can book all together and get a great deal. 
+				<br>
+
+currently, it looks like if we can get a certain amount of people to come, we will all get free drinks the whole time.  that's pretty cool!
+
+			<br>
+			Please mark your top choices for times to go.  When we have gathered enough data we will decide which dates we will book the cruise for based on your responses.
+
+			</div>
+		</div>
+    </div>    
+</div>
+
+
+
+
+
+<div class="col-lg-8">
+<div class="panel panel-primary">
+	<div class="panel-heading"> <h3>Please fill in your information here</h3></div>
+
+	<div class="panel-body">
+
+		<form method="POST" action="/submit" >
+			{% csrf_token %}
+			<br>
+			<table style="width:100%">
+			{% for field in fam_form %}
+			<tr>
+				<div class="fieldWrapper">
+				<td>{{ field.errors }}{{ field.label_tag }}</td>
+				<td>{{ field }}{% if field.help_text %}
+				<p class="help">{{ field.help_text|safe }}</p>
+				{% endif %}
+				</td>
+				</div>
+			</tr>
+			{% endfor %}
+
+			</table>
+			<br>
+			<table style="width:100%">
+			<th>Cruise start</th>
+			<th>End</th>
+			<th>Best</th>
+			<th>Can go</th>
+			<th>Cannot go</th>
+			
+
+			{% for choice in choices.all %}
+				<tr>
+				
+				<td>{{ choice.date_start }}</td>
+				<td>{{ choice.date_end }}</td>
+
+				<td><input type="radio" name="c_{{choice.pk}}" value="best"/></td>
+				<td><input type="radio" name="c_{{choice.pk}}" value="can"/></td>
+				<td><input type="radio" name="c_{{choice.pk}}" value="cant"/></td>
+				</tr>
+
+			{% endfor %}
+			<table>
+
+			<br>
+			<input type="submit" name="submit" 
+				value="Submit" id="submit" class="btn btn-primary">
+		</form>
+
+<!--
+<div>
+	<input type="checkbox" class="col1"/>
+	<input type="checkbox" class="col2"/>
+	<input type="checkbox" class="col3"/>
+</div>
+<div>
+	<input type="checkbox" class="col1"/>
+	<input type="checkbox" class="col2"/>
+	<input type="checkbox" class="col3"/>
+</div>
+<div>
+	<input type="checkbox" class="col1"/>
+	<input type="checkbox" class="col2"/>
+	<input type="checkbox" class="col3"/>
+</div>
+-->
+
+
+
+
+
+
+	</div>
+	</div> <!-- end roll -->
+</div> <!-- container -->
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/jquery.min.js"><\/script>')</script>
+<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="{{STATIC_URL}}js/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{{STATIC_URL}}js/ie10-viewport-bug-workaround.js"></script>
+<script> 
+	$(document).ready(function () {
+	  $('.dropdown-toggle').dropdown();
+	});
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
