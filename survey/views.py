@@ -25,9 +25,7 @@ def submit(request):
 
 
 	
-	scores = summary.process()
-	print(scores)
-	print(Score.objects.all())
+	scores = summary.summarize_results()
 
 	results = Family.objects.all()
 	return render(request, 'thanks.html', {'results':results, 'scores':scores})

@@ -47,9 +47,11 @@
 			Results will be send around soon.
 <br>
 {% for score in scores %}
+	{% for key, value in score.items %}
+		{{ key }}: {{ value }}
+	{% endfor %}
 
-{{score.0}}, {{score.1}}, {{score.2}} <br>
-
+<br>
 {% endfor %}
 
 
