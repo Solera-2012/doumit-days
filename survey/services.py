@@ -7,9 +7,5 @@ def summarize_results():
 	families=Family.objects.all()
 	
 	aggregates=Score.objects.values("choice", "result").annotate(total=Sum("family__num_members"))
-
 	return aggregates
-
-
-
 
