@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 
 from survey.models import Family, FamilyForm, Choice, Score
-from survey.data_processing import summary
-
+import survey.services as services
 
 def home(request):
 	fam_form = FamilyForm()
@@ -25,7 +24,7 @@ def submit(request):
 
 
 	
-	scores = summary.summarize_results()
+	scores = services.summarize_results()
 
 	results = Family.objects.all()
 	return render(request, 'thanks.html', {'results':results, 'scores':scores})
