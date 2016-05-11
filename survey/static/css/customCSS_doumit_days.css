@@ -1,9 +1,9 @@
-
 body {
 	background-image: url("../images/background");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
+
 }
 .well{
 	background-color: rgba(255,255,255,0.6);	
@@ -16,9 +16,6 @@ body {
 input[type=radio] {
     width: 30%;
 }
-
-
-
 
 .panel-heading{
     background-color: rgba(245,245,245,0.6)!important;

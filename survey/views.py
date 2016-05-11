@@ -4,12 +4,15 @@ from django.http import HttpResponseRedirect
 from survey.models import Family, FamilyForm, Choice, Score
 import survey.services as services
 
-
 def home(request):
 	fam_form = FamilyForm()
 	choices = Choice.objects.all()
 	return render(request, 'home.html', {'fam_form':fam_form, 'choices':choices})
 
+def results(request):
+    scores = services.summarize_results()
+    results=Family.objects.all()
+    return render(request, 'thanks.html', {'results':results, 'scores':scores})
 
 def submit(request):
     if request.method == 'POST':
@@ -26,6 +29,4 @@ def submit(request):
                 score = Score(family=new_family,choice=option, result=res)
                 score.save()
 
-    scores = services.summarize_results()
-    results = Family.objects.all()
-    return render(request, 'thanks.html', {'results':results, 'scores':scores})
+    return redirect('/results', request) 
