@@ -3,7 +3,7 @@ from django.forms import ModelForm
 from django.db import models
 
 class Family(models.Model):
-	rep_name = models.CharField("Representative's name",max_length=120)
+	rep_name = models.CharField("Name",max_length=120)
 	num_members = models.IntegerField("Number of family members")
 	email = models.CharField("Email address", max_length=120)
 	
