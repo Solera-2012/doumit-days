@@ -8,16 +8,13 @@
 	<meta name="description" content="home page">
 	<meta name="author" content="Nathaniel Saul/bootstrap examples">
 
-
 	<title>
 	Doumit Days 2018
 	</title>
 
-
-
-	<link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet" media="screen">
 	<link href="{{STATIC_URL}}css/sticky-footer-navbar.css" rel="stylesheet" media="screen">
-	<link href="{{STATIC_URL}}css/customCSS.css" rel="stylesheet" type="text/css"
+	<link href="{{STATIC_URL}}css/customCSS_doumit_days.css" rel="stylesheet" type="text/css"
 	media="screen">
 
 </head>
@@ -25,39 +22,50 @@
 <body>
 
 
-<div class="col-lg-8">
-	<div class="jumbotron">
-	<h1>Doumit Days 2018</h1>
-	</div>
+<div class="container col-center">
+<div class="row">
+    <div class="col-lg-8">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 style="text-align: center">Doumit Days 2018</h1>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
-
+<div class="container col-center">
+<div class="row">
 <div class="col-lg-8">
     <div class="panel panel-primary">
-		<div class="panel-heading"><h3>About</h3></div>
+		<div class="panel-heading">
+            <h3>About</h3>
+        </div>
 		
-			<div class="panel-body">
-				Who wants to come to doumit days?
-				<br>
-				We are planning to take a week long cruise from Seattle to Alaska and back.
-				<br>
-				We are collecting information on the best times so that we can book all together and get a great deal. 
-				<br>
+	    <div class="panel-body">
+<p>
+We are planning to take a week long cruise from Seattle to Alaska and back.
 
-currently, it looks like if we can get a certain amount of people to come, we will all get free drinks the whole time.  that's pretty cool!
+<br>
 
-			<br>
-			Please mark your top choices for times to go.  When we have gathered enough data we will decide which dates we will book the cruise for based on your responses.
+To figure out which times work best and who can come, we would like to collect some
+information about you and your family
 
+</br>
+
+Please mark your top choices for times to go.  When we have gathered enough data we will decide which dates we will book the cruise for based on your responses.
+</p>
 			</div>
 		</div>
     </div>    
 </div>
+</div>
+</div>
+</div>
 
 
-
-
-
+<div class="container col-center">
+<div class="row">
 <div class="col-lg-8">
 <div class="panel panel-primary">
 	<div class="panel-heading"> <h3>Please fill in your information here</h3></div>
@@ -71,7 +79,9 @@ currently, it looks like if we can get a certain amount of people to come, we wi
 			{% for field in fam_form %}
 			<tr>
 				<div class="fieldWrapper">
-				<td>{{ field.errors }}{{ field.label_tag }}</td>
+				<td>{{ field.label_tag }}
+                <div style="color:red">{{ field.errors }}</div>
+                </td>
 				<td>{{ field }}{% if field.help_text %}
 				<p class="help">{{ field.help_text|safe }}</p>
 				{% endif %}
@@ -83,59 +93,35 @@ currently, it looks like if we can get a certain amount of people to come, we wi
 			</table>
 			<br>
 			<table style="width:100%">
-			<th>Cruise start</th>
-			<th>End</th>
-			<th>Best</th>
-			<th>Can go</th>
-			<th>Cannot go</th>
-			
-
+			<th>Cruise start</th><th>End</th><th>Can</th><th>Can't go</th>
 			{% for choice in choices.all %}
 				<tr>
-				
-				<td>{{ choice.date_start }}</td>
-				<td>{{ choice.date_end }}</td>
+                    <td>{{ choice.date_start }}</td>
+                    <td>{{ choice.date_end }}</td>
 
-				<td><input type="radio" name="c_{{choice.pk}}" value="best"/></td>
-				<td><input type="radio" name="c_{{choice.pk}}" value="can"/></td>
-				<td><input type="radio" name="c_{{choice.pk}}" value="cant"/></td>
+                    <td><input type="radio" name="c_{{choice.pk}}" value="can"/></td>
+                    <td><input type="radio" name="c_{{choice.pk}}" value="cant"/></td>
 				</tr>
 
 			{% endfor %}
 			<table>
 
 			<br>
+            <div class="text-center">
 			<input type="submit" name="submit" 
 				value="Submit" id="submit" class="btn btn-primary">
+            </div>
 		</form>
-
-<!--
-<div>
-	<input type="checkbox" class="col1"/>
-	<input type="checkbox" class="col2"/>
-	<input type="checkbox" class="col3"/>
-</div>
-<div>
-	<input type="checkbox" class="col1"/>
-	<input type="checkbox" class="col2"/>
-	<input type="checkbox" class="col3"/>
-</div>
-<div>
-	<input type="checkbox" class="col1"/>
-	<input type="checkbox" class="col2"/>
-	<input type="checkbox" class="col3"/>
-</div>
--->
-
-
-
-
-
-
 	</div>
 	</div> <!-- end roll -->
 </div> <!-- container -->
 </div>
+</div>
+</div>
+
+
+
+
 
 
 <!-- Bootstrap core JavaScript
@@ -154,6 +140,7 @@ currently, it looks like if we can get a certain amount of people to come, we wi
 </script>
 
 </body>
+
 
 </html>
 
