@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from survey.models import Family, FamilyForm, Choice, Score
 import survey.services as services
 
+from django.db.models import Sum
 def home(request):
 	fam_form = FamilyForm()
 	choices = Choice.objects.all()
@@ -12,7 +13,13 @@ def home(request):
 def results(request):
     scores = services.summarize_results()
     results=Family.objects.all()
-    return render(request, 'thanks.html', {'results':results, 'scores':scores})
+
+    choice_one=Score.objects.filter(choice=1).values("result").annotate(total=Sum("family__num_members"))
+    in_data=[["Result", "Total"]]
+    for c in choice_one:
+        in_data.append([c['result'],c['total']])
+
+    return render(request, 'thanks.html', {'results':results, 'scores':scores, 'pie_data': in_data})
 
 def submit(request):
     if request.method == 'POST':
