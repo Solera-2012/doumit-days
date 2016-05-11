@@ -20,11 +20,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'p8h4n6*f9tc$o2*aq_0zxj$x%d3hic5z(q1@vg8g4c+d!#0rwv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = (
+    'doumitdays2018.com'
+    ,'www.doumitdays2018.com'
+    ,'saulgill.pythonanywhere.com'
+    ,'webapp-185428.pythonanywhere.com'
+    ,'*'
+    )
 
 
 # Application definition
@@ -59,7 +65,7 @@ WSGI_APPLICATION = 'doumit_days.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'doumit_days.sqlite3'),
     }
 }
 
@@ -75,10 +81,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
 STATIC_URL = '/static/'
