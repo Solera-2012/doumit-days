@@ -10,7 +10,7 @@ def home(request):
 	choices = Choice.objects.all()
 	return render(request, 'home.html', {'fam_form':fam_form, 'choices':choices})
 
-def results(request):
+def results(request, thanks=0):
     scores = services.summarize_results()
     results=Family.objects.all()
 
@@ -24,8 +24,10 @@ def results(request):
 
         result_data.append(in_data)
 
+    print(request.method)
+    print(thanks)
     return render(request, 'thanks.html', 
-        {'results':results, 'scores':scores, 'pie_data': result_data})
+        {'results':results, 'scores':scores, 'pie_data': result_data, 'thanks':thanks})
 
 def submit(request):
     if request.method == 'POST':
@@ -41,5 +43,11 @@ def submit(request):
                 res = request.POST['c_%s'%(i+1)]
                 score = Score(family=new_family,choice=option, result=res)
                 score.save()
+    
+    if(request.method=="POST"):
+        thanks=1
+    else:
+        thanks=0
 
-    return redirect('/results', request) 
+
+    return redirect('/results/%s'%thanks, request) 
