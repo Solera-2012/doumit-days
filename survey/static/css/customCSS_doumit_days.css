@@ -1,16 +1,5 @@
-body {
-	background-image: url("../images/background");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-
-}
-.well{
-	background-color: rgba(255,255,255,0.6);	
-}
-
 .panel.panel-primary{
-    background-color: rgba(245,245,245,0.6);
+    background-color: rgba(2,73,91,0.6)!important;
 }
 
 input[type=radio] {
@@ -18,7 +7,7 @@ input[type=radio] {
 }
 
 .panel-heading{
-    background-color: rgba(245,245,245,0.6)!important;
+    background-color: rgba(2,73,91,0.6)!important;
     color: black!important;
 }
 
@@ -27,13 +16,18 @@ p {
 }
 
 .jumbotron {
-/*	background-image: url("../images/jumbotron");*/
-
-    background-color: rgba(245,245,245,0.6);
+	background-image: url("../images/doumit_days_header.jpg");
+    background-color: rgba(2,73,91,0.6)!important;
     background-repeat: no-repeat;
 	background-size: cover;
 /*	background-attachment: fixed;*/
 }
 
+.panel {
+    border: 0;
+}
 
+.table > thread > tr > th, .table > thread > tr > tr >td {
+    border: 0;
+}
 

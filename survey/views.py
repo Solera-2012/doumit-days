@@ -14,12 +14,18 @@ def results(request):
     scores = services.summarize_results()
     results=Family.objects.all()
 
-    choice_one=Score.objects.filter(choice=1).values("result").annotate(total=Sum("family__num_members"))
-    in_data=[["Result", "Total"]]
-    for c in choice_one:
-        in_data.append([c['result'],c['total']])
+    # TODO: refactor this
+    result_data = []
+    for choice in Choice.objects.all():
+        choice_results=Score.objects.filter(choice=choice).values("result").annotate(total=Sum("family__num_members"))
+        in_data=[["Result", "Total"]]
+        for c in choice_results:
+            in_data.append([c['result'],c['total']])
 
-    return render(request, 'thanks.html', {'results':results, 'scores':scores, 'pie_data': in_data})
+        result_data.append(in_data)
+
+    return render(request, 'thanks.html', 
+        {'results':results, 'scores':scores, 'pie_data': result_data})
 
 def submit(request):
     if request.method == 'POST':
