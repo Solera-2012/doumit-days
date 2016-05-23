@@ -1,0 +1,37 @@
+
+
+    <div class="panel panel-primary">
+		<div class="panel-heading">
+        <h3>Results</h3>
+        </div>
+		
+		<div class="panel-body">
+	
+
+<!--
+{% for i in pie_data %}
+    <div class="col-lg-4">
+    <div id="piechart{{ forloop.counter0 }}" style="width: 400px; height: 400px;"></div>
+    </div>
+{% endfor %}
+-->
+<h4> This is a list of all the people who have RSVP'd so far: </h4>
+
+			<table id="family_table" class="table">
+				<th>Name</th>
+				<th># Family members</th>
+				<th>Email</th>
+					{% for family in results %}
+					<tr>
+						<td>{{ family.rep_name }}</td>
+						<td>{{ family.num_members }}</td>
+						<td>{{ family.email }}</td>
+					</tr>
+					{% endfor %}
+			</table>
+
+
+			</div>
+		</div>
+    </div>    
+
