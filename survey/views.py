@@ -5,10 +5,20 @@ from survey.models import Family, FamilyForm, Choice, Score
 import survey.services as services
 
 from django.db.models import Sum
+
+
+
+
 def home(request):
-	fam_form = FamilyForm()
-	choices = Choice.objects.all()
-	return render(request, 'home.html', {'fam_form':fam_form, 'choices':choices})
+    fam_form = FamilyForm()
+    choices = Choice.objects.all()
+    results=Family.objects.all()
+    return render(request, 'home.html', {'results':results, 'fam_form':fam_form, 'choices':choices})
+
+
+
+
+
 
 def results(request, thanks=0):
     scores = services.summarize_results()
@@ -23,9 +33,6 @@ def results(request, thanks=0):
             in_data.append([c['result'],c['total']])
 
         result_data.append(in_data)
-
-    print(request.method)
-    print(thanks)
     return render(request, 'thanks.html', 
         {'results':results, 'scores':scores, 'pie_data': result_data, 'thanks':thanks})
 

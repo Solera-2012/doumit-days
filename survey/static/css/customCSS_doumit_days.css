@@ -1,5 +1,7 @@
 .panel.panel-primary{
     background-color: rgba(2,73,91,0.6)!important;
+    font-size:100%;
+    border-width:0px;
 }
 
 input[type=radio] {
@@ -8,26 +10,61 @@ input[type=radio] {
 
 .panel-heading{
     background-color: rgba(2,73,91,0.6)!important;
-    color: black!important;
+    border-width:0px;
+}
+
+.text-muted{
+   color: black!important;
+}
+.footer{
+    background-color: rgba(2,73,91,0.6)!important;
+}
+
+.btn-primary{
+    background-color: rgba(4,66,82,0.6);
+    border-width:0px;
 }
 
 p {
-    color: black;
-}
-
-.jumbotron {
-	background-image: url("../images/doumit_days_header.jpg");
-    background-color: rgba(2,73,91,0.6)!important;
-    background-repeat: no-repeat;
-	background-size: cover;
-/*	background-attachment: fixed;*/
+    color: white;
 }
 
 .panel {
     border: 0;
 }
 
-.table > thread > tr > th, .table > thread > tr > tr >td {
+.table > thead > tr > th, .table > thead > tr > tr > td {
     border: 0;
+    color: white;
+}
+
+.table, .table TD, .table TH {
+    color: white;
+}
+
+td {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    vertical-align: top;
+}
+
+table{
+    border-collapse:collapse;
+    border-spacing:5em;
+
+}
+
+input{
+    width="100%";
+
+}
+
+.subTable {
+    
+}
+
+.subTable td {
+    vertical-align: center;
+    text-align: center;
 }
 

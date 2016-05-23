@@ -17,19 +17,22 @@
 	<link href="{{STATIC_URL}}css/customCSS_doumit_days.css" rel="stylesheet" type="text/css"
 	media="screen">
 
+
+
 </head>
 
 <body>
-
-
 <img src="{{ STATIC_URL }}/images/doumit_days_header.jpg" width="100%";>
 
-<br><br><br><br>
+<br><br><br>
 
 
-<div class="container col-center">
+
+<div class="container-fluid col-center">
 <div class="row">
-<div class="col-lg-12">
+<div class="col-sm-6">
+
+
     <div class="panel panel-primary">
 		<div class="panel-heading">
             <h3>About</h3>
@@ -38,101 +41,166 @@
 	    <div class="panel-body">
 <p>
 We are planning to take a week long cruise from Seattle to Alaska and back.
-<br>
 
 To figure out which times work best and who can come, we would like to collect some
 information about you and your family
 
-</br>
-
 Please mark your top choices for times to go.  When we have gathered enough data we will decide which dates we will book the cruise for based on your responses.
+We are planning to take a week long cruise from Seattle to Alaska and back.
 </p>
 
-<a href="/results" class="button">Click here to see the results</a>
-
-</div>
-</div>
-</div>    
-</div>
-</div>
-</div>
-</div>
 
 
-<div class="container col-center">
-<div class="row">
-<div class="col-lg-12">
+<table>
+<tr>
+<td>
+Dates
+</td>
+<td>
+July 29 - August 4, 2018 (7 day cruise)
+</td>
+</tr>
+
+
+<tr>
+<td>
+Cruise Line 
+Dates
+</td>
+<td>
+- Celebrity, Princess, or Royal Caribbean
+</td>
+</tr>
+<tr>
+<td>
+Destination 
+</td>
+<td>
+- Seattle, Vancouver, Katchikan, Seward, ...
+</td>
+</tr>
+
+<tr>
+<td>
+Rates
+</td>
+<td>
+<table style="width:100%">
+<tr>   <th>Room</th>    <th><sup>$</sup>&frasl;<sub>night</sub></th>  </tr>
+<tr> <td>Inside</td><td>$400</td> </tr>
+<tr> <td> Outside</td><td>$600</td> </tr>
+<tr>  <td>Balcony</td><td> $800</td></tr>
+<tr> <td>Family*</td><td> $1,100</td>
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+
+
+Included - food, drinks, shipboard activities, two formal nights?
+
+Not included - shore excursions, gratuity, parking and airfare to Seattle
+
+Sign up by February 28th, 2018
+
+Refund available until _____?
+
+
+Questions?
+
+Link to cruise line
+ 
+
+
+
+
+
+
+        </div><!-- end panel body -->
+     </div>   <!-- end panel -->
+
+
+</div> <!-- end col-sm-8 -->
+
+
+
+
+
+<div class="col-sm-6">
 <div class="panel panel-primary">
-	<div class="panel-heading"> <h3>Please fill in your information here</h3></div>
-
+	<div class="panel-heading"> 
+    <h3>RSVP</h3></div>
 	<div class="panel-body">
-
-		<form method="POST" action="/submit" >
-			{% csrf_token %}
-			<br>
-			<table style="width:100%">
-			{% for field in fam_form %}
-			<tr>
-				<div class="fieldWrapper">
-				<td>{{ field.label_tag }}
-                <div style="color:red">{{ field.errors }}</div>
-                </td>
-				<td>{{ field }}{% if field.help_text %}
-				<p class="help">{{ field.help_text|safe }}</p>
-				{% endif %}
-				</td>
-				</div>
-			</tr>
-			{% endfor %}
-
-			</table>
-			<br>
-			<table style="width:100%">
-			<th>Cruise start</th><th>End</th><th>Can</th><th>Can't go</th>
-			{% for choice in choices.all %}
-				<tr>
-                    <td>{{ choice.date_start }}</td>
-                    <td>{{ choice.date_end }}</td>
-
-                    <td><input type="radio" name="c_{{choice.pk}}" value="can"/></td>
-                    <td><input type="radio" name="c_{{choice.pk}}" value="cant"/></td>
-				</tr>
-
-			{% endfor %}
-			<table>
-
-			<br>
-            <div class="text-center">
-			<input type="submit" name="submit" 
-				value="Submit" id="submit" class="btn btn-primary">
-            </div>
-		</form>
-	</div>
-	</div> <!-- end roll -->
-</div> <!-- container -->
+        {% include "rsvp.html"  %}
+    </div>
+    </div>
+</div> 
 </div>
+
+
 </div>
 </div>
 
 
 
+<div class="container-fluid col-center">
+    <div class="row">
+        <div class="col-lg-12">
+        {% include "roster.html" %}
+        </div>
+    </div>
+</div>
 
 
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/jquery.min.js"><\/script>')</script>
-<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
-<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-<script src="{{STATIC_URL}}js/holder.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="{{STATIC_URL}}js/ie10-viewport-bug-workaround.js"></script>
-<script> 
-	$(document).ready(function () {
-	  $('.dropdown-toggle').dropdown();
-	});
+{% include "core.html" %}
+
+
+<!--
+<script>
+    function isScrolledTo(elem) {
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height();
+
+        var elemTop = $(elem).offset().top;
+        var elemBottom = elemTop + $(elem).height();
+
+        return ((elemTop <= docViewTop));
+    }
+
+
+    var sticky = $('#sticky');
+    var catcher = $('#catcher');
+
+    $(window).scroll(function() {
+        if(isScrolledTo(sticky)) {
+            sticky.css('position', 'fixed');
+            sticky.css('top','0px');
+        }
+        var stopHeight = catcher.offset().top + catcher.height();
+        if( stopHeight > sticky.offset().top) {
+            sticky.css('position','absolute');
+            sticky.css('top', stopHeight);
+        }
+    });
+
+
 </script>
+-->
+
+<center>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">
+    	Saulgill LLC | 2016  
+    </p>
+  </div>
+</footer>
+</center>
 
 </body>
 
