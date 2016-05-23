@@ -26,10 +26,24 @@
 
 <br><br><br>
 
-
-
 <div class="container-fluid col-center">
-<div class="row">
+<div class="col-sm-12">
+
+
+{% if thanks %}
+<div class="row-fluid">
+<div class="col-sm-12">
+<div class="panel panel-primary">
+	<div class="panel-body">
+    <center>
+    <h3>Thank you for submittting your information. We will contact you when the results are in.   </h3></center>
+    </div><!--panel body-->
+</div> <!--panel primary-->
+</div>
+</div>
+{% endif %}
+
+<div class="row-fluid">
 <div class="col-sm-6">
 
 
@@ -41,89 +55,60 @@
 	    <div class="panel-body">
 <p>
 We are planning to take a week long cruise from Seattle to Alaska and back.
-
-To figure out which times work best and who can come, we would like to collect some
-information about you and your family
-
-Please mark your top choices for times to go.  When we have gathered enough data we will decide which dates we will book the cruise for based on your responses.
-We are planning to take a week long cruise from Seattle to Alaska and back.
 </p>
+<p>Link to cruise line</p>
+
+
+</div>
+</div>
+
+
+    <div class="panel panel-primary">
+		<div class="panel-heading">
+            <h3>Details</h3>
+        </div>
+		
+	    <div class="panel-body">
 
 
 
+
+<table class="table">
+<tr><th>Sign up by:</th><td> February 28th, 2018</td></tr>
+<tr><th>Refund available until:</th><td>UNKNOWN DATE</td></tr>
+<tr><th>Dates:</th><td>July 29 - August 4, 2018 (7 day cruise)</td></tr>
+<tr><th>Cruise Line:</th><td>Celebrity, Princess, or Royal Caribbean</td></tr>
+<tr><th>Destination:</th><td>Seattle, Vancouver, Katchikan, Seward, ...</td></tr>
+
+<tr><th>Rates:</th><td>
 <table>
-<tr>
-<td>
-Dates
-</td>
-<td>
-July 29 - August 4, 2018 (7 day cruise)
-</td>
-</tr>
-
-
-<tr>
-<td>
-Cruise Line 
-Dates
-</td>
-<td>
-- Celebrity, Princess, or Royal Caribbean
-</td>
-</tr>
-<tr>
-<td>
-Destination 
-</td>
-<td>
-- Seattle, Vancouver, Katchikan, Seward, ...
-</td>
-</tr>
-
-<tr>
-<td>
-Rates
-</td>
-<td>
-<table style="width:100%">
-<tr>   <th>Room</th>    <th><sup>$</sup>&frasl;<sub>night</sub></th>  </tr>
-<tr> <td>Inside</td><td>$400</td> </tr>
-<tr> <td> Outside</td><td>$600</td> </tr>
-<tr>  <td>Balcony</td><td> $800</td></tr>
+<thead><tr> <th>Room</th>   <th>Cost</th>  </tr></thead>
+<tr> <td>Inside</td> <td>$400</td> </tr>
+<tr> <td>Outside</td><td>$600</td> </tr>
+<tr> <td>Balcony</td><td> $800</td></tr>
 <tr> <td>Family*</td><td> $1,100</td>
 </table>
+</td></tr>
 
-</td>
+<tr><th>Amenities</th><td>
+
+<table>
+<thead><tr> <th>Included</th>   <th>Not Included</th>  </tr></thead>
+<tr> <td>food</td><td> shore excursions</td>
+<tr> <td>drinks</td> <td>gratuity</td> </tr>
+<tr> <td>shipboard  activities</td><td>parking and airfare to Seattle</td> </tr>
+<tr> <td>two formal nights</td><td></td></tr>
+</table>
 
 </tr>
 
+
+
 </table>
-
-
-
-Included - food, drinks, shipboard activities, two formal nights?
-
-Not included - shore excursions, gratuity, parking and airfare to Seattle
-
-Sign up by February 28th, 2018
-
-Refund available until _____?
-
-
-Questions?
-
-Link to cruise line
- 
-
-
-
-
-
+<small> * Family room sleeps 4 people.</small>
 
         </div><!-- end panel body -->
      </div>   <!-- end panel -->
-
-
 </div> <!-- end col-sm-8 -->
 
 
@@ -131,66 +116,43 @@ Link to cruise line
 
 
 <div class="col-sm-6">
+
+
+<div class="row-fluid">
 <div class="panel panel-primary">
-	<div class="panel-heading"> 
-    <h3>RSVP</h3></div>
+	<div class="panel-heading"> <h3>RSVP</h3></div>
 	<div class="panel-body">
         {% include "rsvp.html"  %}
-    </div>
-    </div>
-</div> 
-</div>
+    </div><!--panel body-->
+</div> <!--panel primary-->
+</div> <!--row fuild-->
+
+</div><!--colsm6 -->
 
 
 </div>
+
 </div>
 
 
+
+
+
+</div>
+</div>
 
 <div class="container-fluid col-center">
-    <div class="row">
+<div class="col-sm-12">
+    <div class="row-fluid">
         <div class="col-lg-12">
         {% include "roster.html" %}
         </div>
     </div>
 </div>
-
+</div>
 
 
 {% include "core.html" %}
-
-
-<!--
-<script>
-    function isScrolledTo(elem) {
-        var docViewTop = $(window).scrollTop();
-        var docViewBottom = docViewTop + $(window).height();
-
-        var elemTop = $(elem).offset().top;
-        var elemBottom = elemTop + $(elem).height();
-
-        return ((elemTop <= docViewTop));
-    }
-
-
-    var sticky = $('#sticky');
-    var catcher = $('#catcher');
-
-    $(window).scroll(function() {
-        if(isScrolledTo(sticky)) {
-            sticky.css('position', 'fixed');
-            sticky.css('top','0px');
-        }
-        var stopHeight = catcher.offset().top + catcher.height();
-        if( stopHeight > sticky.offset().top) {
-            sticky.css('position','absolute');
-            sticky.css('top', stopHeight);
-        }
-    });
-
-
-</script>
--->
 
 <center>
 <footer class="footer">

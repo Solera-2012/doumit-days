@@ -1,4 +1,4 @@
-from survey.models import Choice, Score, Family
+from survey.models import Family
 from django.db.models import Sum
 
 

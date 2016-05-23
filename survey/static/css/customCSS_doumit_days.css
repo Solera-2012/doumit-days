@@ -1,23 +1,15 @@
-.panel.panel-primary{
-    background-color: rgba(2,73,91,0.6)!important;
-    font-size:100%;
-    border-width:0px;
+.body{
+    font-size:18px;
 }
 
-input[type=radio] {
-    width: 30%;
+
+/* FORM STUFF */
+input {
+    max-width:100%;
 }
 
-.panel-heading{
-    background-color: rgba(2,73,91,0.6)!important;
-    border-width:0px;
-}
-
-.text-muted{
-   color: black!important;
-}
-.footer{
-    background-color: rgba(2,73,91,0.6)!important;
+textarea {
+    width:100% !important;
 }
 
 .btn-primary{
@@ -25,24 +17,41 @@ input[type=radio] {
     border-width:0px;
 }
 
-p {
-    color: white;
-}
 
+/*  PANEL STUFF */
+
+.panel.panel-primary{
+    background-color: rgba(2,73,91,0.6)!important;
+    border-width:0px;
+}
+.panel-heading{
+    background-color: rgba(2,73,91,0.6)!important;
+    border-width:0px;
+}
 .panel {
     border: 0;
 }
 
-.table > thead > tr > th, .table > thead > tr > tr > td {
-    border: 0;
-    color: white;
+
+
+/* FOOTER STUFF */
+.text-muted{
+   color: black!important;
+}
+.footer{
+    background-color: rgba(2,73,91,0.6)!important;
 }
 
-.table, .table TD, .table TH {
-    color: white;
+
+
+/* TABLE STUFF */
+
+th {
+/*    color: white;*/
 }
 
 td {
+/*    color: white;*/
     padding-top: .5em;
     padding-bottom: .5em;
     vertical-align: top;
@@ -51,20 +60,11 @@ td {
 table{
     border-collapse:collapse;
     border-spacing:5em;
-
+    width:100%;
 }
 
-input{
-    width="100%";
-
-}
-
-.subTable {
-    
-}
 
 .subTable td {
-    vertical-align: center;
     text-align: center;
 }
 
