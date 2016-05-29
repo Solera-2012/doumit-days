@@ -6,6 +6,7 @@
 /* FORM STUFF */
 input {
     max-width:100%;
+    width: 100%;
 }
 
 textarea {
@@ -18,16 +19,20 @@ textarea {
 }
 
 
-/*  PANEL STUFF */
-
+/*********************  PANEL STUFF ****************************/
 .panel.panel-primary{
     background-color: rgba(2,73,91,0.6)!important;
     border-width:0px;
 }
+
+/*
+*/
 .panel-heading{
-    background-color: rgba(2,73,91,0.6)!important;
+    background-color: rgba(2,73,91,1)!important;
     border-width:0px;
 }
+
+
 .panel {
     border: 0;
 }
@@ -36,15 +41,15 @@ textarea {
 
 /* FOOTER STUFF */
 .text-muted{
-   color: black!important;
+   color: white!important;
 }
 .footer{
-    background-color: rgba(2,73,91,0.6)!important;
+    background-color: rgba(2,73,91,1)!important;
 }
 
 
 
-/* TABLE STUFF */
+/*********************   TABLE STUFF ***************************/
 
 th {
 /*    color: white;*/
@@ -63,8 +68,24 @@ table{
     width:100%;
 }
 
-
 .subTable td {
     text-align: center;
 }
+
+td.colA {
+    width:40%;
+}
+.colB {
+    padding-left: .5em;
+    border-left: 1px solid white;
+    width:60%;
+}
+
+
+
+
+
+
+
+
 

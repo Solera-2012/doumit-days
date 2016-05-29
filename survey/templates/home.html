@@ -12,12 +12,10 @@
 	Doumit Days 2018
 	</title>
 
-    <link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet" media="screen">
 	<link href="{{STATIC_URL}}css/sticky-footer-navbar.css" rel="stylesheet" media="screen">
 	<link href="{{STATIC_URL}}css/customCSS_doumit_days.css" rel="stylesheet" type="text/css"
 	media="screen">
-
-
 
 </head>
 
@@ -27,141 +25,86 @@
 <br><br><br>
 
 <div class="container-fluid col-center">
-<div class="col-sm-12">
 
 
-{% if thanks %}
-<div class="row-fluid">
-<div class="col-sm-12">
-<div class="panel panel-primary">
-	<div class="panel-body">
-    <center>
-    <h3>Thank you for submittting your information. We will contact you when the results are in.   </h3></center>
-    </div><!--panel body-->
-</div> <!--panel primary-->
-</div>
-</div>
-{% endif %}
-
-<div class="row-fluid">
-<div class="col-sm-6">
+  {% if thanks %}
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-primary">
+        <div class="panel-body">
+          <center>
+          <h3>Thank you for submittting your information. We will contact you when the results are in.   </h3></center>
+          </div><!--panel body-->
+      </div> <!--panel primary-->
+    </div>
+  </div>
+  {% endif %}
 
 
+
+
+<div class="row">
+
+  <div class="col-sm-12">
     <div class="panel panel-primary">
-		<div class="panel-heading">
-            <h3>About</h3>
-        </div>
-		
-	    <div class="panel-body">
-<p>
-We are planning to take a week long cruise from Seattle to Alaska and back.
-</p>
-<p>Link to cruise line</p>
+      <div class="panel-heading"><h3>About</h3></div>
+      <div class="panel-body">
+        {% include 'about.html' %}
+      </div>
+    </div>
+  </div>
 
-
-</div>
-</div>
-
-
+  <div class="col-sm-6">
     <div class="panel panel-primary">
-		<div class="panel-heading">
-            <h3>Details</h3>
-        </div>
-		
-	    <div class="panel-body">
+      <div class="panel-heading"><h3>Details</h3></div>
+      <div class="panel-body">
+        {% include "details.html" %}
+      </div><!-- end panel body -->
+    </div>   <!-- end panel -->
+  </div> <!-- end col-sm-8 -->
 
+  <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> <h3>RSVP</h3></div>
+        <div class="panel-body">
+          {% include "rsvp.html" %}
+        </div><!--panel body-->
+      </div> <!--panel primary-->
+  </div><!--colsm6 -->
 
-
-
-<table class="table">
-<tr><th>Sign up by:</th><td> February 28th, 2018</td></tr>
-<tr><th>Refund available until:</th><td>UNKNOWN DATE</td></tr>
-<tr><th>Dates:</th><td>July 29 - August 4, 2018 (7 day cruise)</td></tr>
-<tr><th>Cruise Line:</th><td>Celebrity, Princess, or Royal Caribbean</td></tr>
-<tr><th>Destination:</th><td>Seattle, Vancouver, Katchikan, Seward, ...</td></tr>
-
-<tr><th>Rates:</th><td>
-<table>
-<thead><tr> <th>Room</th>   <th>Cost</th>  </tr></thead>
-<tr> <td>Inside</td> <td>$400</td> </tr>
-<tr> <td>Outside</td><td>$600</td> </tr>
-<tr> <td>Balcony</td><td> $800</td></tr>
-<tr> <td>Family*</td><td> $1,100</td>
-</table>
-</td></tr>
-
-<tr><th>Amenities</th><td>
-
-<table>
-<thead><tr> <th>Included</th>   <th>Not Included</th>  </tr></thead>
-<tr> <td>food</td><td> shore excursions</td>
-<tr> <td>drinks</td> <td>gratuity</td> </tr>
-<tr> <td>shipboard  activities</td><td>parking and airfare to Seattle</td> </tr>
-<tr> <td>two formal nights</td><td></td></tr>
-</table>
-
-</tr>
-
-
-
-</table>
-<small> * Family room sleeps 4 people.</small>
-
-        </div><!-- end panel body -->
-     </div>   <!-- end panel -->
-</div> <!-- end col-sm-8 -->
-
-
-
-
-
-<div class="col-sm-6">
-
-
-<div class="row-fluid">
-<div class="panel panel-primary">
-	<div class="panel-heading"> <h3>RSVP</h3></div>
-	<div class="panel-body">
-        {% include "rsvp.html"  %}
-    </div><!--panel body-->
-</div> <!--panel primary-->
-</div> <!--row fuild-->
-
-</div><!--colsm6 -->
-
+  <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> <h3>Results</h3></div>
+        <div class="panel-body">
+          <img src="{{ STATIC_URL }}/images/Inside-Passage-Cruise-Map.jpg" width="100%";>
+        </div><!--panel body-->
+      </div> <!--panel primary-->
+  </div><!--colsm6 -->
+</div> <!-- row -->
 
 </div>
 
-</div>
-
-
-
-
-
-</div>
-</div>
 
 <div class="container-fluid col-center">
-<div class="col-sm-12">
-    <div class="row-fluid">
-        <div class="col-lg-12">
-        {% include "roster.html" %}
-        </div>
-    </div>
-</div>
+      <div class="row">
+          <div class="col-lg-12">
+          {% include "roster.html" %}
+          </div>
+      </div>
 </div>
 
 
+<!-- This contains the javascript we want to use -->
 {% include "core.html" %}
 
 <center>
-<footer class="footer">
-  <div class="container">
-    <p class="text-muted">
-    	Saulgill LLC | 2016  
-    </p>
-  </div>
-</footer>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">
+        Saulgill LLC | 2016 | Doumit Days
+      </p>
+    </div>
+  </footer>
 </center>
 
 </body>
