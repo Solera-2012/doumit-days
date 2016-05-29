@@ -29,11 +29,13 @@ class Family(models.Model):
     )
     
     num_members = models.PositiveSmallIntegerField(
-        "# of family participants"
+        "# of family participants",
+        default=2
     )
     
     num_rooms = models.PositiveSmallIntegerField(
-        "# of rooms requested"
+        "# of rooms requested",
+        default=1
     )
     
     email = models.CharField(
