@@ -44,6 +44,7 @@ class Family(models.Model):
     )
 
     comments = models.TextField(
+        "Comments/Questions",
         default=""
     )
 
