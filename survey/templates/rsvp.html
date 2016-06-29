@@ -1,41 +1,50 @@
 
+
 <form method="POST" action="/submit">
     
   {% csrf_token %}
     
 <table style="width:100%"> 
-    
-   <!-- break out table --> 
- 
-<tr>
-  <td>  {{ fam_form.rep_name.label_tag }}  </td>
-  <td>  {{ fam_form.rep_name }}  </td>
-</tr>
+
+
+
 
 <tr>
-  <td>  {{ fam_form.email.label_tag }}  </td>
+  <td>  {{ fam_form.rep_name.label_tag }}</td>
+ <td>  {{ fam_form.rep_name }}  </td>
+</tr>
+<tr> <td colspan=2> {{ fam_form.rep_name.errors }}  </td> </tr>
+
+
+<tr>
+  <td>  {{ fam_form.email.label_tag }} </td>
   <td>  {{ fam_form.email }}  </td>
 </tr>
+<tr> <td colspan=2> {{ fam_form.email.errors }} </td> </tr>
 
 <tr>
-  <td>  {{ fam_form.rsvp.label_tag }}  </td>
+  <td>  {{ fam_form.rsvp.label_tag }} </td>
   <td>  {{ fam_form.rsvp }}  </td>
 </tr>
+<tr> <td colspan=2> {{ fam_form.rsvp.errors }} </td> </tr>
 
 <tr>
   <td>  {{ fam_form.date_preference.label_tag }}  </td>
   <td>  {{ fam_form.date_preference }}  </td>
 </tr>
+<tr> <td colspan=2>{{ fam_form.date_preference.errors }} </td> </tr>
 
 <tr>
   <td>  {{ fam_form.num_members.label_tag }}  </td>
   <td>  {{ fam_form.num_members }}  </td>
 </tr>
+<tr> <td colspan=2> {{ fam_form.num_members.errors }}</td> </tr>
 
 <tr>
   <td>  {{ fam_form.num_rooms.label_tag }}  </td>
   <td>  {{ fam_form.num_rooms }}  </td>
 </tr>
+<tr> <td colspan=2>{{ fam_form.num_rooms.errors }} </td> </tr>
 
   <td colspan=2>  {{ fam_form.comments.label_tag }} 
   {{ fam_form.comments }}  </td>

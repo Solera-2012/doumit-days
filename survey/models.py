@@ -2,11 +2,6 @@ from django import forms
 from django.forms import ModelForm, Textarea, EmailInput, NumberInput
 from django.db import models
 
-
-
-
-
-
 from datetime import date
 
 def get_date_choices():
@@ -15,10 +10,9 @@ def get_date_choices():
     date_options_str = [ "%s - %s"%(option[0].strftime('%b %d'), 
                                   option[1].strftime('%b %d')) 
                                   for option in date_options]
-    DATE_CHOICES = ((1,date_options_str[0]), 
-                   (2,date_options_str[1]), 
-                   (3, "No preference"))
-
+    DATE_CHOICES = (("a",date_options_str[0]), 
+                    ("b",date_options_str[1]), 
+                    ("c", "No preference"))
     return DATE_CHOICES
 
 
@@ -60,8 +54,6 @@ class Family(models.Model):
         choices=get_date_choices(), 
         default="No preference"
     )
-
-
 
     def __str__(self):
         return "%s (%s)"%(self.rep_name, self.num_members)
