@@ -59,10 +59,12 @@ class Family(models.Model):
         return "%s (%s)"%(self.rep_name, self.num_members)
 
 class FamilyForm(ModelForm):
+
     class Meta:
         model = Family
         fields = ['rep_name', 'rsvp', 'date_preference','num_rooms', 'num_members', 'email',  'comments']
 
+    
         
         widgets = {
             'comments': Textarea(attrs={'rows':3}),
@@ -71,6 +73,9 @@ class FamilyForm(ModelForm):
         }
 
 
+    def __init__(self, *args, **kwargs):
+        super(FamilyForm, self).__init__(*args, **kwargs)
+        self.fields['comments'].required = False
 
 
 

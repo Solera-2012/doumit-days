@@ -22,6 +22,7 @@ def submit(request):
             results = Family.objects.all()
             return render(request, 'home.html', {'results':results,'fam_form':fam_form,'thanks':1})
         else:
+            print("Form is not valid! Fields are missing")
             return render(request, 'home.html', {'results':results,'fam_form':form,'thanks':0})
     
     return render(request, 'home.html', {'results':results,'fam_form':fam_form,'thanks':0})
